@@ -17,9 +17,35 @@ struct Counter {
 }
 
 /// A bayesian spam classifier.
-#[derive(Default, Debug, Serialize, Deserialize)]
+#[derive(Default, Debug, Deserialize, Serialize)]
+#[serde(from = "ClassifierSerialized")]
 pub struct Classifier {
     token_table: HashMap<String, Counter>,
+    #[serde(skip)]
+    spam_total_count: u32,
+    #[serde(skip)]
+    ham_total_count: u32,
+}
+
+/// The classifier model as it is serialized to disk.
+///
+/// Does not include the `spam_total_count` and `ham_total_count` fields which
+/// can be recomputed from `token_table`.
+#[derive(Deserialize, Serialize)]
+struct ClassifierSerialized {
+    token_table: HashMap<String, Counter>,
+}
+
+impl std::convert::From<ClassifierSerialized> for Classifier {
+    fn from(c: ClassifierSerialized) -> Self {
+        let spam_total_count = c.token_table.values().map(|x| x.spam).sum();
+        let ham_total_count = c.token_table.values().map(|x| x.ham).sum();
+        Self {
+            token_table: c.token_table,
+            spam_total_count,
+            ham_total_count,
+        }
+    }
 }
 
 impl Classifier {
@@ -56,6 +82,7 @@ impl Classifier {
         for word in Self::load_word_list(msg) {
             let counter = self.token_table.entry(word).or_default();
             counter.spam += 1;
+            self.spam_total_count += 1;
         }
     }
 
@@ -64,17 +91,18 @@ impl Classifier {
         for word in Self::load_word_list(msg) {
             let counter = self.token_table.entry(word).or_default();
             counter.ham += 1;
+            self.ham_total_count += 1;
         }
     }
 
     /// Return the total number of spam in token table.
     fn spam_total_count(&self) -> u32 {
-        self.token_table.values().map(|x| x.spam).sum()
+        self.spam_total_count
     }
 
     /// Return the total number of ham in token table.
     fn ham_total_count(&self) -> u32 {
-        self.token_table.values().map(|x| x.ham).sum()
+        self.ham_total_count
     }
 
     /// Compute the probability of each word of `msg` to be part of a spam.
