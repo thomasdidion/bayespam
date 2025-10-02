@@ -1,6 +1,5 @@
 # bayespam
 
-[![Build Status](https://travis-ci.com/zenoxygen/bayespam.svg?branch=master)](https://travis-ci.com/zenoxygen/bayespam)
 [![Crates.io](https://img.shields.io/crates/v/bayespam.svg)](https://crates.io/crates/bayespam)
 [![Docs](https://docs.rs/bayespam/badge.svg)](https://docs.rs/bayespam)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
