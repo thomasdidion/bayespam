@@ -73,6 +73,8 @@
 //!     let ham = "Hi Bob, can you send me your machine learning homework?";
 //!     let is_spam = classifier.identify(ham);
 //!     assert!(!is_spam);
+//!
+//!     Ok(())
 //! }
 //! ```
 
