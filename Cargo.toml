@@ -1,12 +1,12 @@
 [package]
 name = "bayespam"
 version = "1.1.0"
-authors = ["zenoxygen <zenoxygen@protonmail.com>"]
+authors = ["Thomas Didion <thomas.didion@protonmail.com>"]
 edition = "2018"
 
 description = "A simple bayesian spam classifier."
-homepage = "https://github.com/zenoxygen/bayespam"
-repository = "https://github.com/zenoxygen/bayespam"
+homepage = "https://github.com/thomasdidion/bayespam"
+repository = "https://github.com/thomasdidion/bayespam"
 
 keywords = ["bayesian", "spam", "classifier"]
 categories = ["science"]
