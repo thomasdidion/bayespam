@@ -28,8 +28,6 @@
 //! Then, you can use it to **score** and **identify** messages:
 //!
 //! ```
-//! extern crate bayespam;
-//!
 //! use bayespam::classifier;
 //!
 //! fn main() -> Result<(), std::io::Error> {
@@ -52,11 +50,9 @@
 //! You can train a new model from scratch:
 //!
 //! ```
-//! extern crate bayespam;
-//!
 //! use bayespam::classifier::Classifier;
 //!
-//! fn main() {
+//! fn main() -> Result<(), std::io::Error> {
 //!     // Create a new classifier with an empty model
 //!     let mut classifier = Classifier::new();
 //!

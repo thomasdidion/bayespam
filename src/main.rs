@@ -1,5 +1,3 @@
-extern crate bayespam;
-
 use bayespam::classifier;
 
 fn main() -> Result<(), std::io::Error> {

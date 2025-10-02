@@ -37,8 +37,6 @@ Add a `model.json` file to your **package root**.
 Then, you can use it to **score** and **identify** messages:
 
 ```rust
-extern crate bayespam;
-
 use bayespam::classifier;
 
 fn main() -> Result<(), std::io::Error> {
@@ -73,8 +71,6 @@ false
 You can train a new model from scratch, save it as JSON to reload it later:
 
 ```rust
-extern crate bayespam;
-
 use bayespam::classifier::Classifier;
 use std::fs::File;
 
