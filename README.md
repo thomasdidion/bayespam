@@ -28,7 +28,7 @@ Add to your `Cargo.toml` manifest:
 
 ```ini
 [dependencies]
-bayespam = "1.1.0"
+bayespam = "1.2.0"
 ```
 
 ### Use a pre-trained model
