@@ -1,5 +1,6 @@
 # bayespam
 
+[![pipeline](https://github.com/thomasdidion/bayespam/actions/workflows/ci.yaml/badge.svg)](https://github.com/thomasdidion/bayespam/actions/workflows/ci.yaml)
 [![Crates.io](https://img.shields.io/crates/v/bayespam.svg)](https://crates.io/crates/bayespam)
 [![Docs](https://docs.rs/bayespam/badge.svg)](https://docs.rs/bayespam)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
